@@ -79,14 +79,14 @@ const questions = [
   }
   
   // function to initialize app
-  async function init() {
+   async function init() {
     try {
       const response = await promptUser();
   
       const readMeText = generateMarkdown(response);
   
       // function to write file 
-      await writeFileAsync("DEMO-README.md", readMeText);
+      await fs.writeFileAsync("DEMO-README.md", readMeText);
   
       console.log("Successfully wrote to DEMO-README.md");
     } catch (err) {
