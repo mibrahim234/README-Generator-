@@ -49,16 +49,16 @@ const questions = [
         "Apache License 2.0",
         "GNU General Public License v3.0",
         "MIT License",
-        // "BSD T-Clause 'Simplified' License",
-        // "BSD 3-Clause 'New' or 'Revised' License",
-        // "Creative Commons Zero v1.0 Universal",
-        // "Eclipse Public License 2.0",
-        // "GNU Affero General Public License v2.1",
-        // "GNU General Public License v2.0",
-        // "GNU Lesser General Public License v2.1",
-        // "GNU Lesser General Public License v3.0",
+        "BSD T-Clause 'Simplified' License",
+        "BSD 3-Clause 'New' or 'Revised' License",
+        "Creative Commons Zero v1.0 Universal",
+        "Eclipse Public License 2.0",
+        "GNU Affero General Public License v2.1",
+        "GNU General Public License v2.0",
+        "GNU Lesser General Public License v2.1",
+        "GNU Lesser General Public License v3.0",
         "Mozilla Public License 2.0",
-        "The Unilicense",
+        "The Unilicense",``
       ],
       name: "license",
     },
@@ -74,12 +74,29 @@ const questions = [
     },
   ];
 
+  function promptUser() {
+    return inquirer.prompt(questions);
+  }
+  
+  // function to initialize app
+  async function init() {
+    try {
+      const response = await promptUser();
+  
+      const readMeText = generateMarkdown(response);
+  
+      // function to write file 
+      await writeFileAsync("DEMO-README.md", readMeText);
+  
+      console.log("Successfully wrote to DEMO-README.md");
+    } catch (err) {
+      console.log(err);
+    }
+  }
+  
+  // call to initialize app
+  init();
 
-// TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
 
-// TODO: Create a function to initialize app
-function init() {}
 
-// Function call to initialize app
-init();
+
