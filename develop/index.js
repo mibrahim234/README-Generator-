@@ -83,10 +83,10 @@ const questions = [
     try {
       const response = await promptUser();
   
-      const readMeText = generateMarkdown(response);
+      let readMeText = generateMarkdown(response);
   
       // function to write file 
-      await fs.writeFileAsync("DEMO-README.md", readMeText);
+      await writeFileSync("DEMO-README.md", readMeText);
   
       console.log("Successfully wrote to DEMO-README.md");
     } catch (err) {
