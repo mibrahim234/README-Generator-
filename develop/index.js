@@ -3,7 +3,7 @@ const inquirer = require("inquirer");
 const fs = require("fs");
 const util = require("util");
 const generateMarkdown = require("./utils/generateMarkdown");
-const writeReadMe = util.promisify(fs.writeFile);
+//const writeReadMe = util.promisify(fs.writeFile);
 
 // TODO: Create an array of questions for user input
 const questions = [
@@ -86,8 +86,7 @@ const questions = [
       let readMeText = generateMarkdown(response);
   
       // function to write file 
-      await writeFileSync("DEMO-README.md", readMeText);
-  
+  fs.writeFileSync("README.MD", readMeText);
       console.log("Successfully wrote to DEMO-README.md");
     } catch (err) {
       console.log(err);
