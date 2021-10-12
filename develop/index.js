@@ -1,9 +1,7 @@
 // TODO: Include packages needed for this application
 const inquirer = require("inquirer");
 const fs = require("fs");
-const util = require("util");
 const generateMarkdown = require("./utils/generateMarkdown");
-//const writeReadMe = util.promisify(fs.writeFile);
 
 // TODO: Create an array of questions for user input
 const questions = [
@@ -46,17 +44,11 @@ const questions = [
       type: "list",
       message: "Choose a license from the following list:",
       choices: [
+        "MIT License",
         "Apache License 2.0",
         "GNU General Public License v3.0",
-        "MIT License",
         "BSD T-Clause 'Simplified' License",
-        "BSD 3-Clause 'New' or 'Revised' License",
-        "Creative Commons Zero v1.0 Universal",
         "Eclipse Public License 2.0",
-        "GNU Affero General Public License v2.1",
-        "GNU General Public License v2.0",
-        "GNU Lesser General Public License v2.1",
-        "GNU Lesser General Public License v3.0",
         "Mozilla Public License 2.0",
         "The Unilicense",``
       ],
@@ -86,7 +78,7 @@ const questions = [
       let readMeText = generateMarkdown(response);
   
       // function to write file 
-  fs.writeFileSync("README.MD", readMeText);
+  fs.writeFileSync("DEMO-README.MD", readMeText);
       console.log("Successfully wrote to DEMO-README.md");
     } catch (err) {
       console.log(err);
